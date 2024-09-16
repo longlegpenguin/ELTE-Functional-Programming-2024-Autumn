@@ -20,6 +20,21 @@
 -}
 main = print "Hello, functional."
 
+-- type: defines set of values.
+{- 
+Basic Types
+                Bool    False | True
+                Char    '~','c', ...
+                Int     123456, ...
+                Double  0.0000001, ...
+                String  "Hello World!"
+
+    ps: About number, see: http://lambda.inf.elte.hu/Syntax_en.xml#exercise
+-}
+-- function: maps inputs to outputs.
+-- Define a function: name, input type, output type, parameter, implementation.
+-- Call a function: name, arguments.
+
 -- Double an integer
 f :: Int -> Int
 f x = x * 2
@@ -49,10 +64,9 @@ add2 a b = a + b
 
 -- Sum 3 int and multiply by 2.
 add3andmul2 :: Int -> Int -> Int -> Int
-add3andmul2 x y z = x + y + z
+add3andmul2 x y z = (x + y + z) * 2
 
 -- main = print (add3andmul2 1 2 3) -- 12
-
 
 -- Negate a Boolean
 b :: Bool -> Bool
@@ -68,17 +82,6 @@ b2 x = undefined
 -- main = print (b True)      -- False
 -- main = print (b False)     -- True
 
--- Concatenation of three strings
-st3 :: String -> String -> String -> String
-st3 a b c = a ++ b ++ c
--- main = print (st3 "Hello" " World!" " from FP class") -- "Hello World! from FP class"
-
-
--- Function that returns the same character
-cid :: Char -> Char
-cid x = x
--- main = print (cid 'a')    -- 'a'
-
 -- Logical AND (&&)
 logicalAnd :: Bool -> Bool -> Bool
 logicalAnd x y = x && y
@@ -90,6 +93,17 @@ logicalOr :: Bool -> Bool -> Bool
 logicalOr x y = x || y
 
 -- main = print (logicalOr True False) -- True
+
+
+-- Function that returns the same character
+cid :: Char -> Char
+cid x = x
+-- main = print (cid 'a')    -- 'a'
+
+-- Concatenation of three strings
+st3 :: String -> String -> String -> String
+st3 a b c = a ++ b ++ c
+-- main = print (st3 "Hello" " World!" " from FP class") -- "Hello World! from FP class"
 
 ----------------------------------------------------------------------
 
@@ -126,14 +140,3 @@ granpa :: Int -> Int -> Int -> Int -> Int
 granpa original m c f = undefined
 -- main = print (granpa 20000 5 10 1) -- 12500
 -- main = print (granpa 20000 10 5 2) -- 11000
-
-{- 
-Basic Types
-                Bool    False | True
-                Char    '~','c', ...
-                Integer 123456, ...
-                Float/Double  0.0000001, ...
-                String "Hello World!"
-
-    ps: About number, see: http://lambda.inf.elte.hu/Syntax_en.xml#exercise
--}
