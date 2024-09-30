@@ -16,3 +16,18 @@
 - Get to know how to compile and run the code.
 - Get familiar with Haskell types and functions.
 - Practices.
+
+## Lesson 2 Sep 24th
+- More functions.
+  - |
+  - where
+  - mod, rem
+  - error
+  - isUpper, isLower
+  - fromIntegral, show
+- Recursions.
+
+## Lesson 3 Oct 1st
+- List basics
+  - Build-in op
+  - transverse
