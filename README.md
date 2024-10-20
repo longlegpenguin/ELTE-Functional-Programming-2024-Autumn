@@ -31,3 +31,31 @@
 - List basics
   - Build-in op
   - transverse
+- PT: Numerical
+
+## Lesson 4 Oct 8th
+- List Review
+  - Build-in op
+  - Recursion
+- PT: Numerical recursion
+
+## Lesson 5 Oct 15th
+- High order functions
+  - filter
+  - map
+  - takeWhile
+  - foldr
+- PT: List
+
+## Lesson 6 Oct 22nd
+- High order functions & Tuple
+  - iterate, dropWhile, scanl
+  - zip, zipWith, unzip
+- Midterm Info:
+  - 5 coding questions: 1 numerical, 1 lists, 1 tuple, 1 higher order, 1 generator-list comprehension
+  - Wednesday 8-10 am November 13 or Thursday 12-2 pm November 14
+- PT: 
+
+## Lesson 7 Oct 29nd
+- List generator
+- PT: 
