@@ -6,70 +6,65 @@
                 2. "tail list" returns all but the first element.
             3. Use "++" to combine two lists.
             4. "length list" gives the number of elements of list
-            5. Nested Lists: Lists can contain other lists.
+            5. Nested Lists: Lists can contain other lists. [[]]
             6. Indexing: Access elements with (list !! index). (exclamation mark)
 
             for more information check: https://www.haskelltutorials.com/guides/haskell-lists-ultimate-guide.html
-
 
 -}
 
 
 --Generate 2 digits number starting with 9
---main = print ?? -- [90,91,92,93,94,95,96,97,98,99]
+-- main = print [90 .. 99] -- [90,91,92,93,94,95,96,97,98,99]
 
 
 --Generate multiples of 5 in the range of 0 to 100
---main = print ??     
+-- main = print [5, 10 .. 100]
 -- [0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100]
 
 
 --Generate all the 1-digit negatives
---main = print ?? -- [-9,-8,-7,-6,-5,-4,-3,-2,-1]
+-- main = print [-9, -1] -- [-9,-8,-7,-6,-5,-4,-3,-2,-1]
 
 
 --Generate an empty list   
---main = print ?? -- [] 
+-- main = print [3 .. 0] -- [] 
 
 
 -- Generate positive even numbers from 0 up to 100
---main = print ?? 
+-- main = print [0, 2 .. 100]
 --[0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100]
      
-       
---Generate 2 digits number starting with 9
---main = print ?? -- [90,91,92,93,94,95,96,97,98,99]
-
 ---------------------------------------------------------------------------------------
 -- Basic list functions - review
 
---main = print (head [101, 20, 33, 43, 51] )    -- 101 first element of the list
+-- main = print (head [101, 20, 33, 43, 51] )    -- 101 first element of the list
 
---main = print (head [ [101, 20], [33, 43, 51]] )  -- [101,20]
+-- main = print (head [ [101, 20], [33, 43, 51]] )  -- [101,20]
 
---main = print (head [[[101, 20]], [[33]],[[ 43, 51], [1,2,3]]] )  -- [[101,20]]
+-- main = print (head [[[101, 20]], [[33]],[[ 43, 51], [1,2,3]]] )  -- [[101,20]]
 
---main = print (tail [10, 22, 32, 43, 58] )  -- [22,32,43,58] everything except first element as a list
+-- main = print (tail [10, 22, 32, 43, 58] )  -- [22,32,43,58] everything except first element as a list
 
---main = print (drop 5 [1, 2, 3, 4, 5, 6, 7] ) -- [6,7] delete first 5 elements
+-- main = print (drop 5 [1, 2, 3, 4, 5, 6, 7] ) -- [6,7] delete first 5 elements
 
---main = print (take 4 [1, 2, 3, 4, 5] ) -- [1,2,3,4] take first 4 elements
+-- main = print (take 4 [1, 2, 3, 4, 5] ) -- [1,2,3,4] take first 4 elements
 
---main = print ([1..10] ++ [8, 88] )  -- [1,2,3,4,5,6,7,8,9,10,8,88] concatenation, appends the second to the first
+-- main = print ([1..10] ++ [8, 88] )  -- [1,2,3,4,5,6,7,8,9,10,8,88] concatenation, appends the second to the first
 
---main = print (reverse [1..8])  -- [8,7,6,5,4,3,2,1] reverses a list
+-- main = print (reverse [1..8])  -- [8,7,6,5,4,3,2,1] reverses a list
 
---main = print (length [1..100] )   -- 100 number of elements
+-- main = print (length [1..100] )   -- 100 number of elements
 
---main = print (last [100, 200, 300])   -- 300 last list element
+-- main = print (last [100, 200, 300])   -- 300 last list element
 
---main = print (init [100, 200, 300])  -- [100,200] all except the last          
+-- main = print (init [100, 200, 300])  -- [100,200] all except the last          
 
---main = print ( elem 2 [0..22] ) -- True, check membership
+-- main = print ( elem 2 [0..22] ) -- True, check membership
 
---main = print ( elem 5 [10..20]) -- False
+-- main = print ( elem 5 [10..20]) -- False
 
---main = print (concat [[1,2,3,4], [5], [6,7,8]] ) -- [1,2,3,4,5,6,7,8] flattens a list of lists
+-- main = print (concat [[1,2,3,4], [5], [6,7,8]] ) -- [1,2,3,4,5,6,7,8] flattens a list of lists
 
 ---------------------------------------------------------------------------------------
 ---- Define two lists. First one should include first 5 positive integers. 
@@ -95,15 +90,16 @@ second = [1..101]
 fruits :: [String]
 fruits = ["apple", "banana", "cherry"]
 
--- firstFruit :: [String] -> String
+firstFruit :: [String] -> String
+firstFruit x = head x
 
 
 -- main = print (firstFruit ["apple", "banana", "cherry"]) -- "apple"
 -- main = print (firstFruit ["orange"]) -- "orange"
 -- main = print (firstFruit ["kiwi", "mango"]) -- "kiwi"
 
--- restFruits :: [String] -> [String]
-
+restFruits :: [String] -> [String]
+restFruits x = tail x
 
 -- main = print (restFruits ["apple", "banana", "cherry"]) -- ["banana", "cherry"]
 -- main = print (restFruits ["orange"]) -- []
@@ -114,8 +110,9 @@ fruits = ["apple", "banana", "cherry"]
 -- i.e. rotates once to the right.
 -- Ex : [1,2,3] -> [2,3,1]
 
--- transformList :: [a] -> [a]
-
+transformList :: [a] -> [a]
+transformList [] = []
+transformList (x:xs) = xs ++ [x]
 
 -- main = print (transformList ["a", "b", "c"]) -- ["b", "c", "a"]
 -- main = print (transformList [True, False, True]) -- [False, True, True]
@@ -127,7 +124,7 @@ fruits = ["apple", "banana", "cherry"]
    we provide a type annotation (e.g., [Int]) to resolve the ambiguity.
 -}
 
---main = print (transformList ([] :: [Int])) -- empty list
+-- main = print (transformList ([] :: [Int])) -- empty list
 
 
 ---------------------------------------------------------------------------------------
@@ -135,8 +132,10 @@ fruits = ["apple", "banana", "cherry"]
 --removes the first elements from each, and 
 --concatenates the remaining lists. 
 
--- concatTails :: [a] -> [a] -> [a]
-
+concatTails :: [a] -> [a] -> [a]
+concatTails [] _ = error "input too short"
+concatTails _ [] = error "input too short"
+concatTails x y = tail x ++ tail y
 
 -- main = print (concatTails [1, 2, 3] [4, 5, 6]) -- [2, 3, 5, 6]
 -- main = print (concatTails ["a", "b", "c"] ["d", "e", "f"]) -- ["b", "c", "e", "f"]
@@ -148,7 +147,8 @@ fruits = ["apple", "banana", "cherry"]
 -- If the list is empty, it should return 0.
 -- Note: You can use fromIntegral built in function in order to convert Int to Float
 
--- averageList :: [Int] -> Float
+averageList :: [Int] -> Float
+averageList x = fromIntegral(sum x) / fromIntegral(length x)
 
 -- main = print (averageList [1, 2, 3, 4, 5]) -- 3.0
 -- main = print (averageList [10, 20, 30]) -- 20.0
@@ -159,7 +159,8 @@ fruits = ["apple", "banana", "cherry"]
 ---- The sim function takes a list of integers and returns True if the list is symmetrical, otherwise False.
 -- If the list is empty, it should return True.
 
--- sim :: [Int] -> Bool
+sim :: [Int] -> Bool
+sim x = x == reverse x
 
 
 -- main = print (sim [1, 2, 1]) -- True
@@ -172,7 +173,9 @@ fruits = ["apple", "banana", "cherry"]
 ---- The f1 function takes a list of integers and returns a new list 
 -- with 3 added to every element using recursion.
 
--- f1 :: [Int] -> [Int]
+f1 :: [Int] -> [Int]
+f1 [] = []
+f1 (x:xs) = [x + 3] ++ f1 xs
 
 
 -- main = print (f1 [1, 5, 3, 1, 6]) -- [4, 8, 6, 4, 9]
@@ -185,8 +188,9 @@ fruits = ["apple", "banana", "cherry"]
 -- If the list is empty, return an empty list.
 -- remark: built-in function is reverse
 
--- reverseList :: [a] -> [a]
-
+reverseList :: [a] -> [a]
+reverseList [] = []
+reverseList (x:xs) = reverseList xs ++ [x]
 
 -- main = print (reverseList [1, 2, 3, 4]) -- [4, 3, 2, 1]
 -- main = print (reverseList ["apple", "banana", "cherry"]) -- ["cherry", "banana", "apple"]
@@ -197,8 +201,10 @@ fruits = ["apple", "banana", "cherry"]
 -- The function should give an error message if the index is out of bounds.
 -- remark: Lists are 0-indexed.
 
--- elementAt :: Int -> [a] -> a
-
+elementAt :: Int -> [a] -> a
+elementAt n xs 
+    | n < 0 || n >= length xs = error "Error: Index out of bounds"
+elementAt n xs = xs !! n
 
 -- main = print( elementAt 2 [1, 2, 3, 4, 5])  -- 3
 -- main = print( elementAt 5 [1, 2, 3, 4, 5]) -- Index out of bounds
@@ -212,8 +218,11 @@ fruits = ["apple", "banana", "cherry"]
 -- The firstGreaterThanFive function returns the first element greater than 5 in a list of integers. 
 -- If there is no greater than 5 return -1.
 
--- firstGreaterThanFive :: [Int] -> Int
-
+firstGreaterThanFive :: [Int] -> Int
+firstGreaterThanFive [] = -1
+firstGreaterThanFive (x:xs)
+    | x > 5 = x 
+    | otherwise = firstGreaterThanFive xs
 
 -- main = print (firstGreaterThanFive [1, 2, 6, 4, 8]) -- 6
 -- main = print (firstGreaterThanFive [1, 2, 3, 4]) -- -1
@@ -223,11 +232,15 @@ fruits = ["apple", "banana", "cherry"]
 -- Write a recursive function that takes a list of lists of integers and 
 -- returns a new list containing the count of numbers greater than 3 in each inner list.
 
--- countInList :: [Int] -> Int
+countInList :: [Int] -> Int
+countInList [] = 0
+countInList (x:xs) 
+    | x > 3 = 1 + countInList xs
+    | otherwise = countInList xs
 
-
--- countGT3 :: [[Int]] -> [Int]
-
+countGT3 :: [[Int]] -> [Int]
+countGT3 [] = []
+countGT3 (x:xs) = [countInList x] ++ countGT3 xs
 
 -- main = print (countGT3 [[1, 2, 3], [4, 5, 6], [2, 3, 4]]) -- [0, 3, 1]
 -- main = print (countGT3 [[0, 1, 2], [3], [4, 5]]) -- [0, 0, 2]
